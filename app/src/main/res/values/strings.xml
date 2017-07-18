@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StressLess_Android2.0</string>
+    <string name="stress_less">Stress Less</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="not_a_member">not a member?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">email</string>
+    <string name="re_type_password">re-type password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+</resources>

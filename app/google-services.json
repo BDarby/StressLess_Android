@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "898742243421",
+    "firebase_url": "https://project-4402746585487339036.firebaseio.com",
+    "project_id": "project-4402746585487339036",
+    "storage_bucket": "project-4402746585487339036.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898742243421:android:dc308a48f5b08f0d",
+        "android_client_info": {
+          "package_name": "com.fullsail.b_nicole.stressless_android20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898742243421-uil34cr5iqf0tn4p25eos3s09d8uuq2s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fullsail.b_nicole.stressless_android20",
+            "certificate_hash": "18c74887561fcf7066f77b48c2d7e537350de518"
+          }
+        },
+        {
+          "client_id": "898742243421-l46vvh54nug39ekk2fcd3bbcj7h5i6r3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Y7kkSbkH2VgVpyztpLtzA5HOlYXDl0g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898742243421-l46vvh54nug39ekk2fcd3bbcj7h5i6r3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
