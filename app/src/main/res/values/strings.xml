@@ -10,4 +10,60 @@
     <string name="sign_in">Sign In</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
+
+    <string-array name="spinner_collection_values">
+        <item>
+            Animations
+        </item>
+        <item>
+            Sounds
+        </item>
+    </string-array>
+    <string-array name="animations">
+        <item>
+            Alienrain
+        </item>
+        <item>
+            Circles
+        </item>
+        <item>
+            Hellsmatrix
+        </item>
+        <item>
+            Stars
+        </item>
+        <item>
+            Pulsatingblocks
+        </item>
+    </string-array>
+
+    <string-array name="sounds">
+        <item>
+            Brainwave
+        </item>
+        <item>
+            Raindrop
+        </item>
+        <item>
+            Seagull
+        </item>
+        <item>
+            Rainforest
+        </item>
+        <item>
+            Windchimes
+        </item>
+    </string-array>
+
+    <string name="title_activity_main4">Main4Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="home_image_view">home image view</string>
+    <string name="sounds">Sounds</string>
+    <string name="animations">Animations</string>
+    <string name="item_image_view">item image view</string>
+    <string name="media_title_template">Media Title</string>
+
+
 </resources>

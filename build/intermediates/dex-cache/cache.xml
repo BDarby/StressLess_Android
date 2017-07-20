@@ -3,15 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/Users/b_nicole/.android/build-cache/d33b27393c88cdd40d1cf0496e72d11be71da485/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4af2fc28cd4c75cf984bd7b2f387a7ddc4ce9823/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/b_nicole/.android/build-cache/b9007879486b79ca4367326a411ecbd0f089cd0d/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -39,21 +30,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/b_nicole/.android/build-cache/c1637722a292ea140ecc8fa55d5daf86d8cb0fbb/output/jars/classes.jar"
+        jar="/Users/b_nicole/.android/build-cache/8c40ca73a4a30f3f3b235314feb1414ea1f31681/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_89c7404d40c3b88731863a2e8794cb48c9fc537c/classes.dex" />
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a375b76afa0d2f5b84fa9c7188387a2b106dd0e0/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/b_nicole/.android/build-cache/c90a45196d24a72803dd09c45507b0993d360530/output/jars/classes.jar"
+        jar="/Users/b_nicole/.android/build-cache/a1e4c6f63ffe1e9f2974bac4d2937e50673afbc4/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_27ff54328cce9ded75e135f2853f29d1c5adf449/classes.dex" />
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4fa08601f4842222d2b882370934d69ae626e3db/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -106,8 +97,44 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="496f3f1a3e0712dee7b0a51878550893c5e7a444">
+        sha1="d3b6f2f430a49d24269232218b4793281f00a3fa">
         <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a7026ff5ebb2e97822b2bc532f3b0effe21ce952/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/b_nicole/.android/build-cache/1755cdba18a8ebf55eaef810befb528cfb430dc6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_54920b3dbca7621d05976d0056b02602ef8bd1ab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/b_nicole/.android/build-cache/d33b27393c88cdd40d1cf0496e72d11be71da485/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4af2fc28cd4c75cf984bd7b2f387a7ddc4ce9823/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/b_nicole/.android/build-cache/c1637722a292ea140ecc8fa55d5daf86d8cb0fbb/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_89c7404d40c3b88731863a2e8794cb48c9fc537c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/b_nicole/.android/build-cache/c90a45196d24a72803dd09c45507b0993d360530/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_27ff54328cce9ded75e135f2853f29d1c5adf449/classes.dex" />
     </item>
 
 </items>

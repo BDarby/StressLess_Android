@@ -2,6 +2,7 @@ package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,23 +45,37 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_2menu,menu);
+        getMenuInflater().inflate(R.menu.main2_menu,menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Create Account Error");
+        alertDialog.setMessage("Please correct your credentials and try again...");
+        alertDialog.setNeutralButton("Ok", null);
         String email = String .valueOf(signUpEmail.getText());
         String pwd = String.valueOf(signUpPassword.getText());
 
-        mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                startActivity(intent);
-            }
-        });
+        if (!email.isEmpty() && !pwd.isEmpty()) {
+            mAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()){
+                        Intent intent = new Intent(Main2Activity.this, Main4Activity.class);
+                        startActivity(intent);
+                    }else{
+                        alertDialog.setMessage(task.getException().getLocalizedMessage() + " Please correct your credentials and try again...");
+                        alertDialog.show();
+                    }
+                }
+            });
+        }else{
+            alertDialog.show();
+        }
 
         return super.onOptionsItemSelected(item);
     }

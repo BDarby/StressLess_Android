@@ -2,6 +2,7 @@ package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null){
             Log.e(TAG, "onCreate: mAuth.getCurrentUser() != null " );
-            Intent intent = new Intent(MainActivity.this, Main3Activity.class);
+            Intent intent = new Intent(MainActivity.this, Main4Activity.class);
             startActivity(intent);
         }
     }
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+
         //mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -77,21 +80,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Login Account Error");
+        alertDialog.setMessage("Please correct your credentials and try again...");
+        alertDialog.setNeutralButton("Ok", null);
+
         String email = String.valueOf(editEmail.getText());
         String pwd = String.valueOf(editPassword.getText());
 
-        mAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+        if (!email.isEmpty() && !pwd.isEmpty()) {
+            mAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isComplete()) {
-                    Log.e(TAG, "onComplete: Account sign in success..." );
-                    Intent intent = new Intent(MainActivity.this, Main3Activity.class);
-                    startActivity(intent);
+                    if(task.isSuccessful()){
+                        Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+                        startActivity(intent);
+                    }else {
+                        alertDialog.setMessage(task.getException().getLocalizedMessage() + " Please correct your credentials and try again...");
+                        alertDialog.show();
+                    }
                 }
-
-            }
-        });
+            });
+        }else{
+            alertDialog.show();
+        }
 
         return super.onOptionsItemSelected(item);
     }

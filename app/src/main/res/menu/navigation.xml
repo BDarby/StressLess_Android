@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_sounds"
+        android:icon="@drawable/ic_audiotrack_24dp"
+        app:showAsAction="always"
+        android:title="@string/sounds" />
+
+    <item
+        android:id="@+id/navigation_animations"
+        android:icon="@drawable/ic_video_library_24dp"
+        app:showAsAction="always"
+        android:title="@string/animations" />
+
+</menu>
