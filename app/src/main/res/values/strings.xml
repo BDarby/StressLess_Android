@@ -65,6 +65,9 @@
     <string name="item_image_view">item image view</string>
     <string name="media_title_template">Media Title</string>
     <string name="speak">speak</string>
+    <string name="audio_player_button">audio player button...</string>
+    <string name="audio_player_album_cover">audio player album cover</string>
+    <string name="title_name">Title Name</string>
 
 
 </resources>
