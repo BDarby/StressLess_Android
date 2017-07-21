@@ -64,6 +64,7 @@
     <string name="animations">Animations</string>
     <string name="item_image_view">item image view</string>
     <string name="media_title_template">Media Title</string>
+    <string name="speak">speak</string>
 
 
 </resources>

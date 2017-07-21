@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fullsail.b_nicole.stressless_android20.Main3Activity">
+    tools:context="com.fullsail.b_nicole.stressless_android20.Main3Activity"
+    android:background="@color/mainBackground">
 
     <ImageView
         android:id="@+id/user_image_profile"
@@ -22,6 +23,18 @@
         android:id="@+id/email_profile"
         android:textSize="24sp"
         android:textAlignment="center"
-        android:textColorHint="@color/textColor"/>
+        android:textColorHint="@color/textColor"
+        android:textColor="@color/textColor"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/speak"
+        android:id="@+id/speak_button"/>
+
+
+
 
 </RelativeLayout>

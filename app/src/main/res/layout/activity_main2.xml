@@ -25,7 +25,8 @@
         android:inputType="textEmailAddress"
         android:layout_margin="20dp"
         android:id="@+id/email_sigh_up"
-        android:textColorHint="@color/textColor"/>
+        android:textColorHint="@color/textColor"
+        android:textColor="@color/textColor"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -35,17 +36,19 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:id="@+id/password_sign_up"
-        android:textColorHint="@color/textColor"/>
+        android:textColorHint="@color/textColor"
+        android:textColor="@color/textColor"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_below="@id/password_sign_up"
+        android:layout_below="@id/password_sign_up"
         android:layout_margin="20dp"
         android:hint="@string/re_type_password"
         android:inputType="textPassword"
         android:id="@+id/retype_password"
-        android:textColorHint="@color/textColor"/>
+        android:textColorHint="@color/textColor"
+        android:textColor="@color/textColor"/>
 
 
 </android.widget.RelativeLayout>
