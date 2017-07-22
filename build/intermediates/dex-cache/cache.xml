@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="d3b6f2f430a49d24269232218b4793281f00a3fa">
+        sha1="cc203c885f2d4251c040b1d6661c3d0c6b1941b0">
         <dex dex="/Users/b_nicole/Desktop/Classes/AndroidDeployment/StressLess_Android2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a7026ff5ebb2e97822b2bc532f3b0effe21ce952/classes.dex" />
     </item>
     <item

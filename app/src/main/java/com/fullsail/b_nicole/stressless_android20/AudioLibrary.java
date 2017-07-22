@@ -11,6 +11,8 @@ public class AudioLibrary {
     ArrayList<MediaObject> audioObjects = new ArrayList<>();
 
     public AudioLibrary() {
+
+
     }
 
     public AudioLibrary(Context context){

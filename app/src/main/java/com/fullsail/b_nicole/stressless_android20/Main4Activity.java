@@ -1,6 +1,8 @@
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,12 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 
 public class Main4Activity extends AppCompatActivity {
 
+    private static final String TAG = "Main4Activity";
     HomeListAdapter homeListAdapter;
     ListView listView;
 
@@ -40,7 +45,6 @@ public class Main4Activity extends AppCompatActivity {
             }
             return false;
         }
-
     };
 
     @Override
@@ -55,12 +59,16 @@ public class Main4Activity extends AppCompatActivity {
         String[] animationNames = getResources().getStringArray(R.array.animations);
 
         for (String s : soundsNames){
-            sounds.add(new MediaObject(s));
+            Resources res = getResources();
+            int rawId = res.getIdentifier(s.toLowerCase(), "raw", getPackageName());
+            int imageId = res.getIdentifier(s.toLowerCase(), "drawable", getPackageName());
+            MediaObject mediaObject = new MediaObject(s, rawId, imageId);
+            sounds.add(mediaObject);
         }
 
-        for (String s : animationNames){
-            animations.add(new MediaObject(s));
-        }
+//        for (String s : animationNames){
+//            animations.add(new MediaObject(s));
+//        }
 
         homeListAdapter = new HomeListAdapter(this);
         homeListAdapter.setSource(sounds);
@@ -68,6 +76,16 @@ public class Main4Activity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.home_list_view);
         listView.setAdapter(homeListAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.e("TAG", "onItemClick:");
+                MediaObject mediaObject = (MediaObject) view.getTag();
+                Intent intent = new Intent(Main4Activity.this, Main5Activity.class);
+                intent.putExtra("MEDIA_OBJECT", mediaObject);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -87,7 +105,6 @@ public class Main4Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
         startActivity(intent);
         return super.onOptionsItemSelected(item);
