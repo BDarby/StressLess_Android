@@ -11,21 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main6Activity">
+
+        <activity android:name=".SignInActivity"
+            android:label="Sign In"/>
+
+        <activity android:name=".SignUpActivity"
+            android:label="Sign Up"/>
+
+        <activity android:name=".ProfileActivity"
+            android:label="Profile"/>
+
+        <activity android:name=".HomeActivity"
+            android:label="Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main4Activity" />
-        <activity android:name=".Main5Activity" />
+
+        <activity android:name=".AudioPlayerActivity"
+            android:label="Audio Player"/>
+        <activity android:name=".VideoPlayerActivity"
+            android:label="Video Player"/>
 
         <service android:name=".AudioService" />
 
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

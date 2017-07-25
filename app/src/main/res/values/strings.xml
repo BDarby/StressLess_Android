@@ -69,6 +69,9 @@
     <string name="audio_player_album_cover">audio player album cover</string>
     <string name="title_name">Title Name</string>
     <string name="video_player_button">video_player_button</string>
+    <string name="delete">Delete</string>
+    <string name="play_featured_media">Play featured media</string>
+    <string name="long_press_an_item_to_remove_it_from_favorites">Long press an item to remove it from favorites</string>
 
 
 </resources>
