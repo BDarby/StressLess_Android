@@ -50,7 +50,7 @@
         android:layout_centerHorizontal="true"
         android:text="@string/not_a_member"
         android:background="@android:color/transparent"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColor"
         android:id="@+id/notAMember"
         />
 

@@ -38,6 +38,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     TextView songTitle;
     ImageView albumCover;
 
+    boolean isAutoPlayOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,10 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
 
         if(getIntent().hasExtra("MEDIA_OBJECT")){
             mediaObject = (MediaObject) getIntent().getSerializableExtra("MEDIA_OBJECT");
+        }
+
+        if (getIntent().hasExtra("AUTO_PLAY")){
+            isAutoPlayOn = getIntent().getBooleanExtra("AUTO_PLAY", false);
         }
 
         stopButton = (ImageButton) findViewById(R.id.audio_player_stop);
@@ -72,6 +77,8 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         audioIntent = new Intent(this, AudioService.class);
         audioIntent.putExtra("MEDIA_OBJECT",mediaObject);
         bindService(audioIntent, serviceConnection, BIND_AUTO_CREATE);
+
+
     }
 
     @Override
@@ -97,6 +104,9 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             AudioService.AudioServiceBinder binder = (AudioService.AudioServiceBinder) iBinder;
             audioService = binder.getService();
+            if (isAutoPlayOn){
+                AudioPlayerActivity.this.play();
+            }
         }
 
         @Override

@@ -3,6 +3,7 @@ package com.fullsail.b_nicole.stressless_android20;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -16,14 +17,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
+    private static final int SPEECH_REQUEST_CODE = 0x01001;
     MediaListAdapter mediaListAdapter;
     ListView listView;
 
+    String[] soundsNames;
+    String[] animationNames;
     ArrayList<MediaObject> sounds = new ArrayList<>();
     ArrayList<MediaObject> animations = new ArrayList<>();
 
@@ -96,8 +101,8 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        String[] soundsNames = getResources().getStringArray(R.array.sounds);
-        String[] animationNames = getResources().getStringArray(R.array.animations);
+        soundsNames = getResources().getStringArray(R.array.sounds);
+        animationNames = getResources().getStringArray(R.array.animations);
 
         for (String s : soundsNames){
             Resources res = getResources();
@@ -167,8 +172,17 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-        startActivity(intent);
+
+        int id = item.getItemId();
+
+        if (id == R.id.home_mic) {
+            displaySpeechRecognizer();
+        }
+
+        if (id == R.id.home_profile){
+            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -178,6 +192,59 @@ public class HomeActivity extends AppCompatActivity {
 
         randomFeaturedVideoIndex = new Random().nextInt(animations.size());
         featuredVideoMediaObject = animations.get(randomFeaturedVideoIndex);
+    }
+
+    // Create an intent that can start the Speech Recognizer activity
+    private void displaySpeechRecognizer() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+
+        // Start the activity, the intent will be populated with the speech text
+        startActivityForResult(intent, SPEECH_REQUEST_CODE);
+    }
+
+    // This callback is invoked when the Speech Recognizer returns.
+    // This is where you process the intent and extract the speech text from the intent.
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+
+            String spokenText = results.get(0);
+
+            for (MediaObject m : sounds){
+                Log.e(TAG, "onActivityResult: " + m.getSourceName().toLowerCase() );
+
+                if (("play " + m.getSourceName()).toLowerCase().equals(spokenText.toLowerCase())){
+                    Log.e(TAG, "onActivityResult: " + m.getSourceName().toLowerCase() );
+                    Intent intent = new Intent(HomeActivity.this, AudioPlayerActivity.class);
+                    intent.putExtra("MEDIA_OBJECT", m);
+                    intent.putExtra("AUTO_PLAY", true);
+                    startActivity(intent);
+                    break;
+                }
+            }
+
+            for (MediaObject m : animations){
+                Log.e(TAG, "onActivityResult: " + m.getSourceName().toLowerCase() );
+
+                if (("play " + m.getSourceName()).toLowerCase().equals(spokenText.toLowerCase())){
+                    Log.e(TAG, "onActivityResult: " + m.getSourceName().toLowerCase() );
+                    Intent intent = new Intent(HomeActivity.this, VideoPlayerActivity.class);
+                    intent.putExtra("MEDIA_OBJECT", m);
+                    intent.putExtra("AUTO_PLAY", true);
+                    startActivity(intent);
+                    break;
+                }
+            }
+
+            Log.e(TAG, "onActivityResult: " + spokenText );
+            // Do something with spokenText
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

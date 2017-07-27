@@ -22,16 +22,16 @@
             android:label="Profile"/>
 
         <activity android:name=".HomeActivity"
-            android:label="Home">
+            android:label="Stress Less">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity android:name=".AudioPlayerActivity"
             android:label="Audio Player"/>
+
         <activity android:name=".VideoPlayerActivity"
             android:label="Video Player"/>
 
