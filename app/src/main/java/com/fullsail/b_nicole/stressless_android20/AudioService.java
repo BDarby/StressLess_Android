@@ -1,32 +1,28 @@
+//Brittany Darby
+//Android Deployment - C201707
+//AudioService
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.app.Service;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import java.util.ArrayList;
 
-/**
- * Created by b_nicole on 7/21/17.
- */
 
 public class AudioService extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener {
 
     private static final String TAG = "AudioService";
 
-    MediaObject mediaObject;
+    private MediaObject mediaObject;
 
     private MediaPlayer mediaPlayer;
-    private States states = new States();
+    private final States states = new States();
 
     public class AudioServiceBinder extends Binder {
         public AudioService getService(){

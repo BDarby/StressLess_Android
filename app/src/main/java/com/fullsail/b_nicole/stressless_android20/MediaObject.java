@@ -1,16 +1,18 @@
+//Brittany Darby
+//Android Deployment - C201707
+//MediaObject
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import java.io.Serializable;
 
-/**
- * Created by b_nicole on 7/20/17.
- */
 
-public class MediaObject implements Serializable {
 
-    private String sourceName;
-    private int mediaResource;
-    private int imageResource;
+class MediaObject implements Serializable {
+
+    private final String sourceName;
+    private final int mediaResource;
+    private final int imageResource;
 
     public MediaObject(String sourceName, int mediaResource, int imageResource) {
         this.sourceName = sourceName;

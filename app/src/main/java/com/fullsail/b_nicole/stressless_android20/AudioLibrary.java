@@ -1,14 +1,16 @@
+//Brittany Darby
+//Android Deployment - C201707
+//Audio Library
+
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Context;
-
 import java.util.ArrayList;
 
 
 
-public class AudioLibrary {
-
-    ArrayList<MediaObject> audioObjects = new ArrayList<>();
+class AudioLibrary {
 
     public AudioLibrary() {
 
@@ -26,6 +28,6 @@ public class AudioLibrary {
     }
 
     public void setAudioObjects(ArrayList<MediaObject> audioOnjects) {
-        this.audioObjects = audioOnjects;
+        ArrayList<MediaObject> audioObjects = audioOnjects;
     }
 }

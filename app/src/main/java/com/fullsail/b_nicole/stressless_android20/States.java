@@ -1,10 +1,11 @@
+//Brittany Darby
+//Android Deployment - C201707
+//States
+
 package com.fullsail.b_nicole.stressless_android20;
 
-/**
- * Created by b_nicole on 7/21/17.
- */
 
-public class States {
+class States {
 
     private int currentState;
 

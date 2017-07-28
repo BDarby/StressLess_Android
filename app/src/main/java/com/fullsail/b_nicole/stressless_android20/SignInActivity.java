@@ -1,3 +1,7 @@
+//Brittany Darby
+//Android Deployment - C201707
+//SignInActivity
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Intent;
@@ -24,9 +28,8 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    EditText editEmail;
-    EditText editPassword;
-    Button notAMember;
+    private EditText editEmail;
+    private EditText editPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class SignInActivity extends AppCompatActivity {
 
         editEmail = (EditText) findViewById(R.id.email);
         editPassword = (EditText) findViewById(R.id.password);
-        notAMember = (Button) findViewById(R.id.notAMember);
+        Button notAMember = (Button) findViewById(R.id.notAMember);
 
         notAMember.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,8 +1,10 @@
+//Brittany Darby
+//Android Deployment - C201707
+//MediaListAdapter
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,10 @@ import java.util.ArrayList;
 
 
 
-public class MediaListAdapter extends BaseAdapter {
+class MediaListAdapter extends BaseAdapter {
 
-    Context context;
-    ArrayList<MediaObject> source = new ArrayList<>();
+    private final Context context;
+    private ArrayList<MediaObject> source = new ArrayList<>();
 
     public MediaListAdapter(Context context) {
         this.context = context;

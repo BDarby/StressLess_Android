@@ -1,5 +1,8 @@
-package com.fullsail.b_nicole.stressless_android20;
+//Brittany Darby
+//Android Deployment - C201707
+//VideoPlayerActivity
 
+package com.fullsail.b_nicole.stressless_android20;
 
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.MediaController;
 import android.widget.VideoView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,9 +30,8 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
     private static final String TAG = "VideoPlayerActivity";
 
-    VideoView videoView;
-    MediaObject mediaObject;
-    MediaController mediaController;
+    private VideoView videoView;
+    private MediaObject mediaObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        mediaController = new MediaController(this) {
+        MediaController mediaController = new MediaController(this) {
 
             @Override
             public void hide() {
@@ -76,7 +76,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
 
-                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
                     VideoPlayerActivity videoPlayerActivity = (VideoPlayerActivity) getContext();
                     videoPlayerActivity.finish();
                 }

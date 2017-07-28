@@ -1,6 +1,11 @@
+//Brittany Darby
+//Android Deployment - C201707
+//SignUpActivity
+
+
 package com.fullsail.b_nicole.stressless_android20;
 
-import android.content.Intent;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -8,13 +13,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-//Test comment
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -22,9 +26,9 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    EditText signUpEmail;
-    EditText signUpPassword;
-    EditText retypePassword;
+    private EditText signUpEmail;
+    private EditText signUpPassword;
+    private EditText retypePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

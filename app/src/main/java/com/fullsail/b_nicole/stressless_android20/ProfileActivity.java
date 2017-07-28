@@ -1,3 +1,7 @@
+//Brittany Darby
+//Android Deployment - C201707
+//Profile Activity
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.DialogInterface;
@@ -14,12 +18,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -37,22 +39,19 @@ import java.util.Map;
 public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "ProfileActivity";
-    private final int REQ_CODE_SPEECH_OUTPUT = 123;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    TextView emailTextView;
-    Button speakBtn;
 
-    MediaListAdapter mediaListAdapter;
-    ListView listView;
+    private MediaListAdapter mediaListAdapter;
+    private ListView listView;
 
-    ArrayList<MediaObject> sounds = new ArrayList<>();
-    ArrayList<MediaObject> animations = new ArrayList<>();
-    int listMode = 0;
+    private final ArrayList<MediaObject> sounds = new ArrayList<>();
+    private final ArrayList<MediaObject> animations = new ArrayList<>();
+    private int listMode = 0;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -148,17 +147,9 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         String profileEmail = mAuth.getCurrentUser().getEmail();
-        emailTextView = (TextView) findViewById(R.id.email_profile);
+        TextView emailTextView = (TextView) findViewById(R.id.email_profile);
         emailTextView.setText(profileEmail);
 
-        //speakBtn = (Button) findViewById(R.id.speak_button);
-
-//        speakBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openMic();
-//            }
-//        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -193,11 +184,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
 
-//                final ProgressDialog progressDialog = new ProgressDialog(ProfileActivity.this);
-//                progressDialog.setTitle("Removing...");
-//                progressDialog.setMessage("This favorite item is being removed from your favorites...");
-//                progressDialog.show();
-
                 final MediaObject mediaObject = (MediaObject) view.getTag();
                 final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -207,7 +193,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, final int ii) {
 
                         if (listMode == 0){
-//                    progressDialog.setMessage("This audio item is being removed from your favorites...");
+//
                             DatabaseReference location = databaseReference.child("users").child(uid).child("favorites").child("audio");
                             location.child(mediaObject.getSourceName()).removeValue(new DatabaseReference.CompletionListener() {
                                 @Override
@@ -215,12 +201,11 @@ public class ProfileActivity extends AppCompatActivity {
                                     sounds.remove(i);
                                     mediaListAdapter.setSource(sounds);
                                     mediaListAdapter.notifyDataSetChanged();
-                                    //progressDialog.hide();
+
                                 }
                             });
 
                         }else{
-                            //progressDialog.setMessage("This video item is being removed from your favorites...");
                             DatabaseReference location = databaseReference.child("users").child(uid).child("favorites").child("video");
                             location.child(mediaObject.getSourceName()).removeValue(new DatabaseReference.CompletionListener() {
                                 @Override
@@ -228,7 +213,7 @@ public class ProfileActivity extends AppCompatActivity {
                                     animations.remove(i);
                                     mediaListAdapter.setSource(animations);
                                     mediaListAdapter.notifyDataSetChanged();
-                                    //progressDialog.hide();
+
                                 }
                             });
                         }
@@ -243,38 +228,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-
-//    private void openMic(){
-//        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH);
-//        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "What is your request?");
-//        try {
-//            startActivityForResult(intent, REQ_CODE_SPEECH_OUTPUT);
-//        } catch (ActivityNotFoundException tim){
-//
-//        }
-//
-//
-//    }
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        switch (requestCode){
-//            case REQ_CODE_SPEECH_OUTPUT:{
-//                if(resultCode == RESULT_OK && null != data){
-//                    ArrayList<String> voiceIntent = data.getStringArrayListExtra(RecognizerIntent.EXTRA_LANGUAGE);
-//                   //this is where I think I make the voice command do something
-//
-//                }
-//                break;
-//            }
-//        }
-//
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -298,7 +251,7 @@ public class ProfileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void performLogout(){
+    private void performLogout(){
         AlertDialog.Builder alert = new AlertDialog.Builder(ProfileActivity.this);
         alert.setTitle("Logout Warning!");
         alert.setMessage("Are you sure you want to logout from your account?");
@@ -321,7 +274,7 @@ public class ProfileActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public void performDelete(){
+    private void performDelete(){
 
         AlertDialog.Builder alert = new AlertDialog.Builder(ProfileActivity.this);
         alert.setTitle("Warning Deleting Account!");
@@ -358,7 +311,7 @@ public class ProfileActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public void performDelete2(final AuthCredential credential){
+    private void performDelete2(final AuthCredential credential){
         mAuth.getCurrentUser().reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -373,7 +326,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void performDelete3(){
+    private void performDelete3(){
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("users").child(uid).removeValue(new DatabaseReference.CompletionListener() {
@@ -390,7 +343,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-    public void performDelete4(){
+    private void performDelete4(){
         mAuth.getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

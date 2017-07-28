@@ -1,3 +1,7 @@
+//Brittany Darby
+//Android Deployment - C201707
+//HomeActivity
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.Intent;
@@ -24,25 +28,19 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
     private static final int SPEECH_REQUEST_CODE = 0x01001;
-    MediaListAdapter mediaListAdapter;
-    ListView listView;
+    private MediaListAdapter mediaListAdapter;
 
-    String[] soundsNames;
-    String[] animationNames;
-    ArrayList<MediaObject> sounds = new ArrayList<>();
-    ArrayList<MediaObject> animations = new ArrayList<>();
+    private final ArrayList<MediaObject> sounds = new ArrayList<>();
+    private final ArrayList<MediaObject> animations = new ArrayList<>();
 
-    ImageView featuredImage;
-    ImageButton playFeaturedButton;
-    MediaObject featuredAudioMediaObject;
-    MediaObject featuredVideoMediaObject;
-    int randomFeaturedAudioIndex = 0;
-    int randomFeaturedVideoIndex = 0;
+    private ImageView featuredImage;
+    private MediaObject featuredAudioMediaObject;
+    private MediaObject featuredVideoMediaObject;
 
-    int listMode = 0;
+    private int listMode = 0;
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -82,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         featuredImage = (ImageView) findViewById(R.id.featured_image_view);
-        playFeaturedButton = (ImageButton) findViewById(R.id.play_featured_button);
+        ImageButton playFeaturedButton = (ImageButton) findViewById(R.id.play_featured_button);
         playFeaturedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,8 +99,8 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        soundsNames = getResources().getStringArray(R.array.sounds);
-        animationNames = getResources().getStringArray(R.array.animations);
+        String[] soundsNames = getResources().getStringArray(R.array.sounds);
+        String[] animationNames = getResources().getStringArray(R.array.animations);
 
         for (String s : soundsNames){
             Resources res = getResources();
@@ -123,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
         mediaListAdapter = new MediaListAdapter(this);
         mediaListAdapter.setSource(sounds);
 
-        listView = (ListView) findViewById(R.id.home_list_view);
+        ListView listView = (ListView) findViewById(R.id.home_list_view);
         listView.setAdapter(mediaListAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -186,11 +184,11 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void randomSetUp(){
-        randomFeaturedAudioIndex = new Random().nextInt(sounds.size());
+    private void randomSetUp(){
+        int randomFeaturedAudioIndex = new Random().nextInt(sounds.size());
         featuredAudioMediaObject = sounds.get(randomFeaturedAudioIndex);
 
-        randomFeaturedVideoIndex = new Random().nextInt(animations.size());
+        int randomFeaturedVideoIndex = new Random().nextInt(animations.size());
         featuredVideoMediaObject = animations.get(randomFeaturedVideoIndex);
     }
 

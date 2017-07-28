@@ -1,3 +1,7 @@
+//Brittany Darby
+//Android Deployment - C201707
+//AudioServicePlayer
+
 package com.fullsail.b_nicole.stressless_android20;
 
 import android.content.ComponentName;
@@ -27,18 +31,10 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
 
     private static final String TAG = "AudioPlayerActivity";
 
-    MediaObject mediaObject;
+    private MediaObject mediaObject;
     private AudioService audioService;
-    Intent audioIntent;
 
-    ImageButton stopButton;
-    ImageButton playButton;
-    ImageButton pauseButton;
-
-    TextView songTitle;
-    ImageView albumCover;
-
-    boolean isAutoPlayOn = false;
+    private boolean isAutoPlayOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +49,16 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             isAutoPlayOn = getIntent().getBooleanExtra("AUTO_PLAY", false);
         }
 
-        stopButton = (ImageButton) findViewById(R.id.audio_player_stop);
-        playButton = (ImageButton) findViewById(R.id.audio_player_play);
-        pauseButton = (ImageButton) findViewById(R.id.audio_player_pause);
+        ImageButton stopButton = (ImageButton) findViewById(R.id.audio_player_stop);
+        ImageButton playButton = (ImageButton) findViewById(R.id.audio_player_play);
+        ImageButton pauseButton = (ImageButton) findViewById(R.id.audio_player_pause);
 
         stopButton.setOnClickListener(this);
         playButton.setOnClickListener(this);
         pauseButton.setOnClickListener(this);
 
-        songTitle = (TextView) findViewById(R.id.audio_player_text);
-        albumCover = (ImageView) findViewById(R.id.audio_player_album_cover);
+        TextView songTitle = (TextView) findViewById(R.id.audio_player_text);
+        ImageView albumCover = (ImageView) findViewById(R.id.audio_player_album_cover);
 
         if(mediaObject != null ){
             songTitle.setText(mediaObject.getSourceName());
@@ -74,7 +70,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     protected void onResume() {
         super.onResume();
 
-        audioIntent = new Intent(this, AudioService.class);
+        Intent audioIntent = new Intent(this, AudioService.class);
         audioIntent.putExtra("MEDIA_OBJECT",mediaObject);
         bindService(audioIntent, serviceConnection, BIND_AUTO_CREATE);
 
@@ -87,15 +83,15 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         unbindService(serviceConnection);
     }
     
-    public void stop() {
+    private void stop() {
         audioService.stop();
     }
 
-    public void play() {
+    private void play() {
         audioService.play();
     }
 
-    public void pause() {
+    private void pause() {
         audioService.pause();
     }
 
